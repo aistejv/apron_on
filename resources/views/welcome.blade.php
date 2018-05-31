@@ -11,7 +11,7 @@
     <div class="container text-center wow pulse">
       <img src="images/apron.svg" alt="logo" />
       <br />
-      <h1>Apron on!</h1>
+      <h1>Apron on! booo</h1>
     </div>
   </section>
 
