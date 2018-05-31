@@ -1,28 +1,56 @@
 <!-- Website Footer
 =================== -->
 <footer>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-color-purple">
   <div class="container">
-    <div class="row">
-      <!-- About -->
-      <div class="col-md-6 col-sm-12 text-center">
-        <h3>About</h3>
-        <div class="footer-about">
-          "A recipe book is one that you use daily and what we in our family
-          call 'a living book' — a book that you use all the time,
-          not just read once and discard on the shelf.
-          Recipes are by nature derivative and meant to be shared -
-          that is how they improve, are changed, how new ideas are formed. ”
-        </div>
-      </div>
-      <!-- Author -->
-      <div class="col-md-6 col-sm-12 text-center">
-        <div class="footer-author">
-          Made with
-          <i class="fa fa-heart" aria-hidden="true"></i>
-          love by
-          <a href="https://jraleman.com/" target="_blank">Jose Ramon</a>.
-        </div>
-      </div>
+    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbar9">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar9">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <form action="{{route('search')}}" method="GET">
+                  @csrf
+                <input type="text" name="search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+              </li>
+              @guest
+                  <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                  <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+              @else
+                  <li class="nav-item dropdown">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          {{ Auth::user()->name }} <span class="caret"></span>
+                      </a>
+
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                              {{ __('Logout') }}
+                          </a>
+                          <a class="dropdown-item" href="{{route('all.categories')}}" class="btn btn-primary btn-sm">Categories</a>
+
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                          </form>
+                      </div>
+                  </li>
+              @endguest
+
+          </ul>
+        </nav>
+
     </div>
-  </div>
+
+
+
+
 </footer>

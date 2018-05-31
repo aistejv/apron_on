@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-color-purple">
+<nav class="navbar navbar-expand-lg navbar-dark bg-color-purple top-navbar">
     <div class="container">
         <a href="/" class="navbar-brand">Apron On</a>
         <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbar9">
@@ -7,29 +7,42 @@
         <div class="navbar-collapse collapse" id="navbar9">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                  <form action="{{route('search')}}" method="GET">
+                    @csrf
+                  <input type="text" name="search">
+                  <button class="btn btn-outline-light" type="submit">Search</button>
+                  </form>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Codeply</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
-                @if (Route::has('login'))
-                        @auth
-                          <li class="nav-item">
-                            <a  class="nav-link" href="{{ url('/home') }}">Home</a>
-                          </li>
-                        @else
-                          <li class="nav-item">
-                            <a  class="nav-link" href="{{ route('login') }}">Login</a>
-                          </li>
-                          <li class="nav-item">
-                            <a  class="nav-link" href="{{ route('register') }}">Register</a>
-                          </li>
-                        @endauth
+                @guest
+                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                @endif
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <a class="dropdown-item" href="{{route('all.categories')}}" class="btn btn-primary btn-sm">Categories</a>
+                            <a class="dropdown-item" href="{{route('all.recipes')}}" class="btn btn-primary btn-sm">Recipes</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
 
             </ul>
         </div>

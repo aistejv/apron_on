@@ -18,7 +18,7 @@
 body {
   /* background-color: #a44c9f; */
   color: #666;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   line-height: 1.50;
@@ -83,12 +83,19 @@ table {
 #logo img {
   height: 100px;
   width: auto;
-  margin-top: 24px;
+  margin-top: 34px;
 }
 #logo h1 {
   font-family: 'Quirlycues';
   font-size: 72px;
-  font-weight: normal;
+  font-weight: bold;
+  padding-top: 24px;
+  color: #f9f9f9;
+}
+#logo p {
+  font-family: 'Quirlycues';
+  font-size: 36px;
+  font-weight: bold;
   padding-top: 24px;
   color: #f9f9f9;
 }
@@ -98,7 +105,7 @@ table {
 ** -----------------------------------------------------------------------------
 */
 
-nav{
+.top-navbar{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -119,29 +126,39 @@ nav{
 */
 
 #categories {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   padding-top: 12px;
   padding-bottom: 24px;
+  min-height: 450px;
+  background-image:
+    /* radial-gradient(rgba(126, 0, 119, 0.15),
+    rgba(126, 0, 119, 0.75)), */
+    url("../images/mediterranean-cuisine-top.jpg");
 }
 #categories h2 {
   color: #333;
   font-family: 'Dancing Script', cursive;
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 12px;
 }
 .category-item {
-  border: 2px;
-  border-color: #ff58df;
+  border: 4px;
+  border-color: #f9f9f9;
   border-radius: 2.5px;
   border-style: solid !important;
-  background-color: #a44c9f;
-  color: #f9f9f9;
+  /* background-color: #a44c9f; */
+  color: #f9f9f9 !important;
   font-weight: bold;
-  margin-top: 6px;
+  /* margin-top: 6px; */
 }
 .category-item i {
   padding-top: 6px;
   padding-bottom: 3px;
+  color: #f9f9f9 !important;
+}
+.category-item a {
+  color: #f9f9f9 !important;
+  text-decoration: none;
 }
 .show-all {
   margin-top: 12px;
@@ -172,9 +189,11 @@ nav{
   margin-top: 12px;
   color: #666;
 }
+
 .recipe-item {
   margin-bottom: 24px;
   padding-bottom: 12px;
+  padding-top: 24px;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 0 rgba(0,0,0,.15);
@@ -185,15 +204,41 @@ nav{
   height: auto;
 }
 
+.recipe-item a {
+  color: #666 !important;
+  text-decoration: none;
+}
+
+/*
+** All Recipes Section
+** -----------------------------------------------------------------------------
+*/
+#allRecipes {
+  /* background-color: #f1f1f1; */
+  padding-top: 24px;
+  padding-bottom: 24px;
+  min-height: 700px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image:
+    url("../images/board-bread-breakfast-bg.jpg");
+}
 /*
 ** Recipe Section
 ** -----------------------------------------------------------------------------
 */
 
 #recipe {
-  background-color: #f1f1f1;
-  padding-top: 12px;
+  /* background-color: #f1f1f1; */
+  padding-top: 24px;
   padding-bottom: 24px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image:
+    url("../images/board-bread-breakfast-bg.jpg");
+}
 }
 #recipe h2 {
   color: #333;
@@ -206,6 +251,8 @@ nav{
   background-color: #f1f1f1;
   margin-top: 24px;
 }
+
+
 .recipe-picture {
   max-width: 100%;
   height: auto;
@@ -340,6 +387,7 @@ nav{
 footer {
   background-color: #a44c9f;
   color: #f9f9f9;
+  min-height: 200px;
   padding-bottom: 24px;
   padding-top: 24px;
   background-size: cover;
